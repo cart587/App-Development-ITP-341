@@ -20,8 +20,6 @@ public class AddStockActivity extends Activity {
     EditText editTextColor;
     EditText editTextStock;
 
-    public static final String EXTRA_POSITION= "itp341.carter.christin.a7.app.extra_position";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

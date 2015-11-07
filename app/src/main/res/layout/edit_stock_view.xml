@@ -2,30 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingEnd="@dimen/custom_adapater_padding"
-    android:paddingStart="@dimen/custom_adapater_padding"
-    android:paddingTop="@dimen/custom_adapater_padding">
+    android:paddingEnd="@dimen/custom_adapter_padding"
+    android:paddingStart="@dimen/custom_adapter_padding"
+    android:paddingTop="@dimen/custom_adapter_padding">
 
         <!--Product Name row-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal" android:layout_marginBottom="@dimen/activity_vertical_margin">
 
             <TextView
                 android:id="@+id/textViewEditProductName"
                 android:text="@string/product_name"
                 android:textSize="@dimen/listView_text_size"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_weight="1"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:id="@+id/editProductName"
-                android:text="Galaxy S5"
                 android:textSize="@dimen/listView_text_size"
+                android:layout_marginStart="@dimen/custom_adapter_padding"
                 android:layout_weight="1"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
@@ -34,93 +35,97 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal" android:layout_marginBottom="@dimen/activity_vertical_margin">
 
             <TextView
-                android:id="@+id/textViewBrand"
-                android:layout_width="wrap_content"
+                android:id="@+id/textViewEditBrand"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:text="@string/brand"
                 android:textSize="@dimen/listView_text_size" />
 
             <TextView
-                android:id="@+id/editTextBrand"
-                android:text="Samsung"
+                android:id="@+id/editBrand"
                 android:textSize="@dimen/listView_text_size"
+                android:layout_marginStart="@dimen/custom_adapter_padding"
                 android:layout_weight="1"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
         <!--Price Row-->
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal" android:layout_marginBottom="@dimen/activity_vertical_margin">
 
             <TextView
-                android:id="@+id/textViewPrice"
-                android:layout_width="wrap_content"
+                android:id="@+id/textViewEditPrice"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:text="@string/price"
                 android:textSize="@dimen/listView_text_size" />
 
-            <EditText
-                android:id="@+id/editTextPrice"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/editPrice"
+                android:textSize="@dimen/listView_text_size"
+                android:layout_marginStart="@dimen/custom_adapter_padding"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:minWidth="@dimen/editText_min_width" />
-        </RelativeLayout>
+                android:layout_weight="1" />
+        </LinearLayout>
 
         <!--Color Row-->
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal" android:layout_marginBottom="@dimen/activity_vertical_margin">
 
             <TextView
-                android:id="@+id/textViewColor"
-                android:layout_width="wrap_content"
+                android:id="@+id/textViewEditColor"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:text="@string/color"
                 android:textSize="@dimen/listView_text_size" />
 
-            <EditText
-                android:id="@+id/editTextColor"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/editColor"
+                android:textSize="@dimen/listView_text_size"
+                android:layout_marginStart="@dimen/custom_adapter_padding"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:minWidth="@dimen/editText_min_width" />
-        </RelativeLayout>
+                android:layout_weight="1"/>
+        </LinearLayout>
 
         <!--Stock Row-->
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal" android:layout_marginBottom="@dimen/activity_vertical_margin">
 
             <TextView
-                android:id="@+id/textViewStock"
-                android:layout_width="wrap_content"
+                android:id="@+id/textViewEditStock"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:text="@string/stock"
                 android:textSize="@dimen/listView_text_size" />
 
-            <EditText
-                android:id="@+id/editTextStock"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/editStock"
+                android:textSize="@dimen/listView_text_size"
+                android:layout_marginStart="@dimen/custom_adapter_padding"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:minWidth="@dimen/editText_min_width" />
-        </RelativeLayout>
+                android:layout_weight="1" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent" android:gravity="center"

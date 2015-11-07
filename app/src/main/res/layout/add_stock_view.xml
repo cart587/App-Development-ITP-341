@@ -7,9 +7,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingEnd="@dimen/custom_adapater_padding"
-        android:paddingStart="@dimen/custom_adapater_padding"
-        android:paddingTop="@dimen/custom_adapater_padding">
+        android:paddingEnd="@dimen/custom_adapter_padding"
+        android:paddingStart="@dimen/custom_adapter_padding"
+        android:paddingTop="@dimen/custom_adapter_padding">
 
         <!--Product Name row-->
         <RelativeLayout

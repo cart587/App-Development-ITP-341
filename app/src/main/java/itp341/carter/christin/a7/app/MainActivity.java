@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -22,7 +23,8 @@ public class MainActivity extends Activity {
     StockArrayAdapter arrayAdapter;
 
     public static final String TAG = "MainActivity";
-
+    public static final int ADD_STOCK_ACTIVITY = 0;
+    public static final int EDIT_STOCK_ACTIVITY = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +45,20 @@ public class MainActivity extends Activity {
     private void setListenersAndAdapters(){
         listView.setAdapter(arrayAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(getApplicationContext(),EditStockActivity.class);
+                i.putExtra(EditStockActivity.EXTRA_POSITION,position);
+                startActivityForResult(i,EDIT_STOCK_ACTIVITY);
+            }
+        });
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(),AddStockActivity.class);
-                startActivityForResult(i, 0);
+                startActivityForResult(i, ADD_STOCK_ACTIVITY);
             }
         });
     }
