@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Stock Manager</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="product_name">Product Name:</string>
+    <string name="brand">Brand:</string>
+    <string name="price">Price:</string>
+    <string name="color">Color:</string>
+    <string name="stock">Stock:</string>
+    <string name="save">Save</string>
+    <string name="buy_stock">Buy Stock</string>
+    <string name="sell_stock">Sell Stock</string>
+    <string name="sell_all">Sell All</string>
+    <string name="delete_item">Delete Item From Record</string>
+</resources>
