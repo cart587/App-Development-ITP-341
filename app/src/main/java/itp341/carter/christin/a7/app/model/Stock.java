@@ -47,7 +47,6 @@ public class Stock {
     }
 
     public Stock(JSONObject jsonObject, String name) throws JSONException{
-        Log.d(TAG, "In stock jsonObject constructor");
 
         this.name = name;
         brand = jsonObject.getString(JSON_BRAND);

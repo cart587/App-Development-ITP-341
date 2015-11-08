@@ -15,4 +15,5 @@
     <string name="delete_item">Delete Item From Record</string>
     <string name="sold_all_stocks">You sold all of your stock!</string>
     <string name="out_of_stock">You have no stock left for this item.</string>
+    <string name="invalid_price">Invalid price entered, changed to NA.</string>
 </resources>

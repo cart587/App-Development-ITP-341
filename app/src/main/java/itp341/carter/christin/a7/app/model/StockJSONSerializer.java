@@ -57,12 +57,11 @@ public class StockJSONSerializer {
                 Log.d(TAG, "Reading stocks.json from assets");
             }
             reader = new BufferedReader(new InputStreamReader(in));
-            Log.d(TAG, "Opended BufferedReader");
+            Log.d(TAG, "Opened BufferedReader");
             StringBuilder jsonString = new StringBuilder();
             String line = null;
             while ((line = reader.readLine()) != null) {
                 // line breaks are omitted and irrelevant
-                Log.d(TAG,line.substring(0,20));
                 jsonString.append(line);
             }
             Log.d(TAG, "Read all text from file");
