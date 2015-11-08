@@ -13,7 +13,7 @@ import itp341.carter.christin.a7.app.R;
  * Created by Chris on 11/6/2015.
  */
 public class Stock {
-//    private static final String JSON_NAME = "name";
+    private static final String JSON_NAME = "name";
     private static final String JSON_BRAND = "brand";
     private static final String JSON_PRICE = "price";
     private static final String JSON_COLOR = "color";
@@ -36,6 +36,15 @@ public class Stock {
         imageId = getImage(brand);
     }
 
+    public Stock(JSONObject jsonObject) throws JSONException{
+
+        name = jsonObject.getString(JSON_NAME);
+        brand = jsonObject.getString(JSON_BRAND);
+        price = jsonObject.getString(JSON_PRICE);
+        color = jsonObject.getString(JSON_COLOR);
+        stockCount = jsonObject.getInt(JSON_STOCK);
+        imageId = getImage(brand);
+    }
 
     public Stock(JSONObject jsonObject, String name) throws JSONException{
         Log.d(TAG, "In stock jsonObject constructor");
@@ -50,9 +59,9 @@ public class Stock {
 
     public JSONObject toJSON() throws JSONException{
         JSONObject jsonObject = new JSONObject();
-//        jsonObject.put(JSON_NAME,name);
+        jsonObject.put(JSON_NAME,name);
         jsonObject.put(JSON_PRICE,price);
-//        jsonObject.put(JSON_STOCK,stockCount);
+        jsonObject.put(JSON_STOCK,stockCount);
         jsonObject.put(JSON_COLOR,color);
         jsonObject.put(JSON_BRAND,brand);
         return jsonObject;

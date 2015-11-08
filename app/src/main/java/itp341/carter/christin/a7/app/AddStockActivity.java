@@ -46,6 +46,7 @@ public class AddStockActivity extends Activity {
 
         Stock newStock = new Stock(pName,brand,price,color,stock);
         StockSingleton.getInstance(this).addStock(newStock);
+        StockSingleton.getInstance(this).saveStocks();
 
         setResult(RESULT_OK);
         finish();

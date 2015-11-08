@@ -13,4 +13,6 @@
     <string name="sell_stock">Sell Stock</string>
     <string name="sell_all">Sell All</string>
     <string name="delete_item">Delete Item From Record</string>
+    <string name="sold_all_stocks">You sold all of your stock!</string>
+    <string name="out_of_stock">You have no stock left for this item.</string>
 </resources>

@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import itp341.carter.christin.a7.app.model.Stock.StockComparator;
 
 /**
  * Created by Chris on 11/6/2015.
@@ -37,7 +38,7 @@ public class StockSingleton {
     }
 
     public void alphabeticallyOrderStocks(){
-        Collections.sort(mStocks,new Stock.StockComparator());
+        Collections.sort(mStocks,new StockComparator());
     }
 
     public ArrayList<Stock> getStocks(){
@@ -54,8 +55,10 @@ public class StockSingleton {
     }
 
     public void updateStock(int position, Stock s){
-        if(position >= 0 && position < mStocks.size())
-            mStocks.set(position,s);
+        if(position >= 0 && position < mStocks.size()) {
+            mStocks.set(position, s);
+        }
+
     }
 
     public void removeStock(int position){
@@ -65,7 +68,7 @@ public class StockSingleton {
 
     public boolean saveStocks(){
         try{
-            mSerializer.saveCoffeeShops(mStocks);
+            mSerializer.saveStocks(mStocks);
             return true;
         }catch (Exception e){
 

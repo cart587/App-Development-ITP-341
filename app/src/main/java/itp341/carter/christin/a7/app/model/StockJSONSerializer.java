@@ -45,10 +45,11 @@ public class StockJSONSerializer {
         ArrayList<Stock> stocks = new ArrayList<>();
         BufferedReader reader = null;
         InputStream in;
+        boolean fileExists;
         try {
             // open and read the file into a StringBuilder
-            File file = new File(filename);
-            if(file.exists()) {
+            fileExists = fileExists(filename);
+            if(fileExists) {
                 in = context.openFileInput(filename);
                 Log.d(TAG, "Reading stocks.json from internal file");
             } else {
@@ -56,24 +57,34 @@ public class StockJSONSerializer {
                 Log.d(TAG, "Reading stocks.json from assets");
             }
             reader = new BufferedReader(new InputStreamReader(in));
+            Log.d(TAG, "Opended BufferedReader");
             StringBuilder jsonString = new StringBuilder();
             String line = null;
             while ((line = reader.readLine()) != null) {
                 // line breaks are omitted and irrelevant
+                Log.d(TAG,line.substring(0,20));
                 jsonString.append(line);
             }
+            Log.d(TAG, "Read all text from file");
             // parse the JSON using JSONTokener
-            Log.d(TAG, "Right before Tokener");
-            JSONObject object = (JSONObject)new JSONTokener(jsonString.toString()).nextValue();
-            JSONObject stockObject = object.getJSONObject("stock");
-            Log.d(TAG, "Made it to For-loop");
-            // build the array of coffeeShops from JSONObjects
-            for (int i = 0; i < json_keys.length; i++) {
-                stocks.add(new Stock(stockObject.getJSONObject(json_keys[i]),json_keys[i]));
+
+            if(!fileExists) {
+                JSONObject object = (JSONObject)new JSONTokener(jsonString.toString()).nextValue();
+                JSONObject stockObject = object.getJSONObject("stock");
+                // build the array of coffeeShops from JSONObjects
+                for (int i = 0; i < json_keys.length; i++) {
+                    stocks.add(new Stock(stockObject.getJSONObject(json_keys[i]), json_keys[i]));
+                }
+            }else{
+                JSONArray array = (JSONArray) new JSONTokener(jsonString.toString()).nextValue();
+                // build the array of stocks from JSONObjects
+                for (int i = 0; i < array.length(); i++) {
+                    stocks.add(new Stock(array.getJSONObject(i)));
+                }
             }
 
         } catch (Exception e) {
-            Log.d(TAG, "Exception thrown");
+            Log.d(TAG, e.getMessage());
         }
         finally {
             if (reader != null)
@@ -82,8 +93,9 @@ public class StockJSONSerializer {
         return stocks;
     }
 
-    public void saveCoffeeShops(ArrayList<Stock> stockArrayList) throws JSONException, IOException{
+    public void saveStocks(ArrayList<Stock> stockArrayList) throws JSONException, IOException{
         //build JSON array
+        Log.d(TAG, "Saving stocks");
         JSONArray jsonArray = new JSONArray();
 
         for (Stock s: stockArrayList){
@@ -102,6 +114,15 @@ public class StockJSONSerializer {
         if(writer != null){
             writer.close();
         }
+        Log.d(TAG, "Finished saving stock");
+    }
+
+    private boolean fileExists(String filename) {
+        File file = context.getFileStreamPath(filename);
+        if(file == null || !file.exists()) {
+            return false;
+        }
+        return true;
     }
 
 }
